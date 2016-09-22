@@ -1,0 +1,6 @@
+*.swp
+src/node_modules/
+src/public/fonts/.DS_Store
+src/.sass-cache/
+src/public/stylesheets/style.css.map
+src/sass/

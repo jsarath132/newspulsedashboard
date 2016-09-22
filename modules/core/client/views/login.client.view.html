@@ -1,0 +1,52 @@
+	<div class="login-whole">
+		<!-- Login Container -->
+		<div class="login-container" ng-class="{'grey-scale': vm.dataLoading}" ng-controller="LoginController as vm">
+			<!-- Login Header -->
+			<div class="login-header"><div class="login-logo"></div></div>
+			<!-- Login form container -->
+			<div class="form-container">
+				<form ng-submit="vm.login(vm.npd_login.$valid)" novalidate name="vm.npd_login" role="form" >
+					<div ng-if="vm.error" class="alert alert-danger general-error" ng-bind="vm.error"> </div>
+					<!-- Email Field -->
+					<div class="form-group">
+					  	<div class="label">Email</div>
+					  	<div ng-class="{ 'error-throw': ((vm.npd_login.username.$touched || vm.submitted) &&  (vm.npd_login.username.$error.email || vm.npd_login.username.$error.required))}" class="flex txt-container">
+						    <span class="pull-left">@</span>
+						    <div class="field-container">
+						    <input name="username" ng-model="vm.username" required type="email" ng-model-options="{ updateOn: 'blur' }" class="form-control txtbox-login" id="username" placeholder="{{(vm.submitted && vm.npd_login.username.$invalid)?'':'Username'}}">
+						    <div ng-cloak ng-show="(vm.npd_login.username.$touched || vm.submitted) && vm.npd_login.username.$invalid">
+							    <label ng-show="vm.npd_login.username.$error.required">Please enter required field.</label>
+							    <label ng-show="vm.npd_login.username.$error.email">Please enter valid email.</label>
+							</div>
+						    </div>
+					    </div>
+					</div>
+					<!-- Password Field -->
+					<div class="form-group">
+						<div class="label">Password</div>
+						<div ng-class="{ 'error-throw': ((vm.npd_login.password.$touched || vm.submitted) &&  vm.npd_login.password.$error.required) }" class="flex txt-container">
+						    <span><i class="icon-lock"></i></span>
+						    <div class="field-container"><input name="password" required ng-model-options="{ updateOn: 'blur' }" ng-model="vm.password" type="password" class="form-control txtbox-login" id="pwd" placeholder="{{(vm.submitted && vm.npd_login.password.$invalid)?'':'Password'}}">
+						    <div ng-cloak ng-show="(vm.npd_login.password.$touched || vm.submitted) && vm.npd_login.password.$invalid">
+							    <label ng-show="vm.npd_login.password.$error.required" >Please enter required field.</label>
+							</div>
+						    </div>
+						</div>
+					</div>
+					<!--<div class="fgt-pwd">
+						Forget password
+					  	<div class="pull-right">
+					    	<div><a href="">Forget Password?</a></div>
+					  	</div>
+					  	Remember Me
+						<div class="checkbox pull-left">
+						    <label><input type="checkbox" id="text1"> Remember me</label>
+						</div>
+					</div>-->
+				  <button type="submit" class="btn btn-default btn-login"><i class="icon-login"></i>Log In</button>
+				</form>	
+			</div>	
+			<!-- Login footer -->
+			<div class="login-footer"><div class="footer-logo"></div></div>
+		</div>
+	</div>
